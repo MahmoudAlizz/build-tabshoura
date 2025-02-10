@@ -10,11 +10,7 @@ on:
 
 jobs:
   build:
-    strategy:
-      matrix:
-        os: [windows-latest, ubuntu-latest] # تشغيل البناء على Windows و Linux
-
-    runs-on: ${{ matrix.os }}
+    runs-on: windows-latest # حصر البناء على Windows
 
     steps:
       - name: 🔹 جلب الكود من المستودع
@@ -40,5 +36,4 @@ jobs:
           name: tabshoura-build-${{ runner.os }}
           path: |
             dist/*.exe  # ملف Windows
-            dist/*.AppImage  # ملف Linux
           retention-days: 5 # سيتم الاحتفاظ بالملفات لمدة 5 أيام فقط
