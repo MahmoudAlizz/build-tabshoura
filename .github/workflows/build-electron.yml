@@ -30,10 +30,13 @@ jobs:
       - name: 🔹 بناء التطبيق (Electron Build)
         run: npm run dist
 
+      - name: 🔹 التحقق من الملفات بعد البناء
+        run: ls -R
+
       - name: 🔹 رفع المخرجات كـ Artifact مع رابط تحميل مباشر
         uses: actions/upload-artifact@v4 # تم التحديث إلى v4
         with:
           name: tabshoura-build-${{ runner.os }}
           path: |
-            dist/*.exe  # ملف Windows
+            build/*.exe  # ملف Windows
           retention-days: 5 # سيتم الاحتفاظ بالملفات لمدة 5 أيام فقط
