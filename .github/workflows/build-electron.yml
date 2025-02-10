@@ -1,0 +1,44 @@
+name: Build Electron App
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest] # تشغيل البناء على Windows و Linux
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: 🔹 جلب الكود من المستودع
+        uses: actions/checkout@v3
+
+      - name: 🔹 تثبيت Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: 🔹 تثبيت الحزم باستخدام npm
+        run: npm install --legacy-peer-deps
+
+      - name: 🔹 تثبيت تبعيات Electron
+        run: npm run postinstall
+
+      - name: 🔹 بناء التطبيق (Electron Build)
+        run: npm run dist
+
+      - name: 🔹 رفع المخرجات كـ Artifact مع رابط تحميل مباشر
+        uses: actions/upload-artifact@v3
+        with:
+          name: tabshoura-build-${{ runner.os }}
+          path: |
+            dist/*.exe  # ملف Windows
+            dist/*.AppImage  # ملف Linux
+          retention-days: 5 # سيتم الاحتفاظ بالملفات لمدة 5 أيام فقط
