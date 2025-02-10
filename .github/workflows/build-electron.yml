@@ -41,5 +41,5 @@ jobs:
         with:
           name: tabshoura-build
           path: |
-            build/Tabshoura_Setup_1.0.0.exe
+            D:\a\build-tabshoura\build-tabshoura\build\Tabshoura Setup 1.0.0.exe
           retention-days: 5 # سيتم الاحتفاظ بالملفات لمدة 5 أيام فقط
