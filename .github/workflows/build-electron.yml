@@ -38,5 +38,5 @@ jobs:
         with:
           name: tabshoura-build-${{ runner.os }}
           path: |
-            build/*.exe  # ملف Windows
+            /home/thakiadmin/Documents/GitHub/tabshoura-build/build/Tabshoura Setup 1.0.0.exe
           retention-days: 5 # سيتم الاحتفاظ بالملفات لمدة 5 أيام فقط
