@@ -35,6 +35,7 @@
         "nsis"
       ]
     },
+    "publish": "never",
     "appId": "org.thaki.tabshoura.app",
     "productName": "Tabshoura",
     "icon": "bin/Assets/icon.png",
