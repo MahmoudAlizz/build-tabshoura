@@ -1,0 +1,40 @@
+{
+  "name": "tabshoura",
+  "version": "1.0.0",
+  "description": "Tabshoura-packager",
+  "main": "main.js",
+  "scripts": {
+    "postinstall": "electron-builder install-app-deps",
+    "electron": "ELECTRON_DISABLE_SECURITY_WARNINGS=true electron .",
+    "start": "electron-forge start",
+    "debug": "electron --inspect=5001 .",
+    "watch": "nodemon --exec 'electron .'",
+    "test": "",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "package-linux": "electron-packager . myappthaki --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/icons/png/GIMP.png --prune=true --out=release-builds",
+    "dist": "electron-builder --win --x64 --linux --x64"
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0",
+    "hammerjs": "^2.0.8",
+    "jquery": "^3.6.0",
+    "keytar": "^7.7.0",
+    "materialize-css": "^1.0.0"
+  },
+  "devDependencies": {
+    "electron": "^34.0.2",
+    "electron-builder": "^25.1.8",
+    "electron-forge": "^5.2.4"
+  },
+  "build": {
+    "asar": false,
+    "compression": "maximum",
+    "appId": "org.thaki.tabshoura.app",
+    "productName": "Tabshoura",
+    "icon": "bin/Assets/icon.png",
+    "directories": {
+      "output": "build"
+    }
+  }
+}
