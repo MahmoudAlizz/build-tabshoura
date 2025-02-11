@@ -35,9 +35,6 @@
         "nsis"
       ]
     },
-    "nsis": {
-      "compression": "store"
-    },
     "publish": null,
     "appId": "org.thaki.tabshoura.app",
     "productName": "Tabshoura",
