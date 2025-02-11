@@ -13,6 +13,17 @@ jobs:
     runs-on: windows-latest # حصر البناء على Windows
 
     steps:
+      - name: Clean npm cache
+        run: npm cache clean --force
+
+      - name: Clean Electron Builder cache
+        run: |
+          rm -rf ~/.cache/electron-builder
+          rm -rf ~/AppData/Local/electron-builder
+
+      - name: Check disk space
+        run: df -h
+
       - name: 🔹 جلب الكود من المستودع
         uses: actions/checkout@v3
 
